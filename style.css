@@ -1,0 +1,108 @@
+/* index page style*/
+.maindiv{
+	background: bisque;
+	width:90%;
+	display: flex;
+}
+.leftdiv{
+	background: lightgreen;
+	margin:2%;
+	width:35%;
+	height:2000%;
+	margin:2%;
+	box-shadow: 2px 2px 2px 2px red;
+	padding:10px;
+}
+img{
+	width:350px;
+	height:150px;
+}
+.rightdiv{
+	background: aqua;
+	margin:2%;
+    width: 65%;
+	box-shadow: 2px 2px 2px 2px red;
+	padding:10px;
+}
+#bod{
+	background:aqua;
+	text-align: center;
+}
+.profile{
+	color:red;
+}
+#header-1{
+	background: pink;
+	font-size:30px;
+	margin: 2%;
+	padding: 2%;
+}
+h1{
+	color:#E94927;
+}
+#body{
+	text-align: center;
+}
+.main{
+	margin:2%;
+	display:flex;
+	flex-wrap: wrap;
+	text-align: center;
+	justify-content: center;
+}
+
+.sub{
+	box-shadow: 2px 2px 2px 2px ;
+	width:90%;
+	text-align: center;
+	padding:10px;
+	margin:2%;
+}
+.sub-1{
+	box-shadow: 2px 2px 2px 2px ;
+	width:40%;
+	padding:10px;
+	text-align: center;
+	margin:2%;
+	justify-content: space-around;
+}
+input {
+	width:70%;
+	margin-bottom:10px;
+}
+select{
+	margin-bottom: 10px;
+	width:70%;
+}
+
+@media screen and (max-width: 480px)
+{
+	.sub,.sub-1{
+		width:90%;
+	}
+	#bod{
+		background: bisque;
+		display: inline-block;
+	}
+	.maindiv{
+	background: bisque;
+	width:90%;
+	display: inline-block;
+}
+.leftdiv{
+	background: lightgreen;
+	margin:2%;
+	width:100%;
+	margin:2%;
+	box-shadow: 2px 2px 2px 2px red;
+	padding:10px;
+	
+}
+.rightdiv{
+	background: aqua;
+	margin:2%;
+    width: 200%;
+	box-shadow: 2px 2px 2px 2px red;
+	padding:10px;
+}
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>resume building</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="apple-touch-icon" sizes="57x57" href="./icons/hai/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="./icons/hai/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="./icons/hai/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="./icons/hai/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="./icons/hai/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="./icons/hai/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="./icons/hai/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="./icons/hai/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/hai/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="./icons/hai/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/hai/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="./icons/hai/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./icons/hai/favicon-16x16.png">
+<link rel="manifest" href="./icons/hai/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="./icons/hai/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body id="bod">
+   <header id="header-1">Resume Builder</header>
+    <a id="header-2" href="form.html"><img src="image1.png" width="125"></a>
+    <div id=#parent></div>
+</body>
+</html>
+<script type="text/javascript" src="./js/swregister.js"></script>
+<script type="text/javascript">
+	var indexedDB=window.indexedDB || window.mozIndexedDB || window.msIndexedDB || window.webkitIndexedDB;
+	var store;
+	var open;
+	var result;
+	var tx;
+	var request=indexedDB.open("database",1);
+
+	request.onupgradeneeded=function(e){
+		open=e.target.result;
+		store=open.createObjectStore("resumedata",{keyPath:"name"});
+
+	}
+	request.onerror=function(e){
+		console.log("error"+e);
+
+	}
+	request.onsuccess=function(e){
+		open=e.target.result;
+		tx=open.transaction("resumedata",'readwrite');
+		store=tx.objectStore("resumedata");
+		var info=store.getAll();
+		info.onsuccess=function(data){
+			console.log(data);
+			display(data.target.result);
+		}
+
+	var bod=document.querySelector("#bod")
+	function display(d){
+		for(i=0;i<d.length;i++)
+		{
+			var h1=document.createElement("h2");
+		   h1.textContent=d[i].name;
+		   bod.append(h1);
+		   var ach=document.createElement("a");
+		   ach.classList.add("profile");
+		   ach.setAttribute("href","resume.html?"+d[i].name);
+		   ach.append(h1);
+		   bod.append(ach);
+		   console.log(d[i].name);
+
+		}
+		
+	}
+}
+</script>
